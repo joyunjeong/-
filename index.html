@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>탐방다방</title>
+ <style>
+    @font-face {
+      font-family: 'Pretendard-Regular';
+      src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0px;
+}
+#header-box {
+      
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 300;
+      background: #efaf3f;
+      padding: 0px 45px;
+      max-width: 1280px;
+      margin: 0px 0px 0px 0px;
+      font-size: 14pt;
+      font-weight: bold;
+     
+    }
+ a {
+      text-decoration: none;
+      color: inherit;
+        }
+    a:hover {
+      color: #993f30;
+    }
+
+
+body {
+     font-family: "Pretendard Variable", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      padding: 0px;
+      margin: 0 auto;
+      max-width: 1280px;
+    }
+
+    .d-flex {
+      margin-bottom: 30px;
+      display: flex;
+      gap: 20px;
+    }
+
+
+
+    h3 {
+      color: #993f30;
+      font-weight: 700;
+    }
+
+    .content-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .content-wrapper>* {
+      height: 410px;
+      background-color: #efaf3f;
+    }
+
+    .header {
+      width: 38%;
+    }
+
+    .header img {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .header2 {
+      width: 67%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .title-block {
+      width: calc(100% - 40px);
+      display: flex;
+      justify-content: space-between;
+    }
+   
+   .hero-block {
+     display: flex;
+     width: 100%;
+     justify-content: space-between; 
+   }
+   
+   .text-block {
+     width: 25%;
+     padding-left: 20px;
+     padding-right: 20px;
+     font-weight: 700;
+   }
+
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      width: 55%;
+      max-width: 50%;
+      height: 325px;
+      /* 이미지 높이에 맞춰 설정 */
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slider img {
+      width: 100%;
+      /* 또는 max-width: 100% */
+      height: auto;
+      flex-shrink: 0;
+    }
+
+
+    /* ✅ 메인 콘텐츠 + aside */
+    .menu-section {
+      width: 38%;
+      padding-right: 30px;
+    }
+
+    .content {
+      flex: 1;
+      max-width: 50%;
+    }
+
+    .aboutmore h2,
+    .buybook h2 {
+      color: rgb(129, 0, 0);
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
+    .aboutmore ul li,
+    .buybook ul li {
+      list-style: none;
+      background: #4caf50;
+      color: white;
+      padding: 10px;
+      margin: 8px auto;
+      width: 200px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    .menu-row {
+      margin-bottom: 15px;
+    }
+
+    .split-btn,
+    .purchase-section a {
+      display: flex;
+      width: 100%;
+      height: 80px;
+      border-radius: 50px;
+      overflow: hidden;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 24px;
+      transition: filter 0.3s;
+    }
+
+    .aside {
+      width: 67%;
+    }
+
+    /* 부모요소인 menu-section으로 통일해서 코드 정리 */
+    .menu-section .left {
+      background-color: #21594e;
+      /* 초록 */
+      color: #ffffff;
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu-section .right {
+      background-color: #efaf3f;
+      /* 노랑 */
+      color: black;
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: color 0.2s, border-bottom 0.2s;
+    }
+
+    .split-btn:hover .right {
+      background-color: #21594e;
+      color: #efaf3f;
+    }
+
+    .purchase-aside-wrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: flex-start;
+      padding: 30px;
+    }
+
+    .purchase-section {
+      flex: 1;
+    }
+
+    .aside img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+    }
+
+    .purchase-section {
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    .purchase-section h3 {
+      margin-bottom: 15px;
+    }
+
+.purchase-btn {
+  display: flex;
+  justify-content: center;   /* 텍스트 가로 중앙 정렬 */
+  align-items: center;       /* 텍스트 세로 중앙 정렬 */
+  width: 100%;
+  height: 45px;              /* 높이 살짝 키움 (원하면 조절 가능) */
+  background-color: #efaf3f; /* 기본 노란색 */
+  border-radius: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.purchase-btn:hover {
+  background-color: #21594e;
+  color: #efaf3f;
+  
+}
+
+    .expain {
+      font-weight: bold;
+    }
+
+    .expain p {
+      margin-bottom: 0;
+    }
+
+    /* 하단 */
+    .footer {
+      height: 400px;
+      position: relative;
+      background-color: #efaf3f;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .footer img {
+      max-width: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+    }
+
+    .footer img:nth-child(1) {
+      top: -50px;
+    }
+
+    .footer img:nth-child(2) {
+      top: 125px;
+    }
+
+    /* 노선 타임라인 */
+    .subway-line {
+      position: relative;
+      left: -7.5px;
+      display: flex;
+      width: 88%;
+      justify-content: space-between;
+      align-items: center;
+      margin: 300px auto 0 auto;
+      padding-bottom: 10px;
+    }
+
+    .subway-line .dot {
+      width: 20px;
+      background: white;
+      border: 4px solid #4caf50;
+      border-radius: 50%;
+    }
+
+    .subway-line .label {
+      font-size: 35px;
+      color: #21594e;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .subway-line .label:hover {
+      color: #993f30;
+    }
+
+.end{
+  color: gray;
+  text-align: center;
+  font-size: 10px;
+}
+  </style>
+</head>
+
+<body>
+  <div id="header-box">
+      <div class="header-left"> <a href="#">탐방다방</a>ㅣ<a href="#">책 소개</a> ㅣ <a href="#">다방과 디자인</a>                         </a></div>
+        
+        <div class="header-right"> <a href="#">서울</a> ㅣ <a href="#">공주</a> ㅣ <a href="#">부산</a> ㅣ <a href="#">제주</a></div>
+       </div>
+  <!— container 시작 —>
+  <div class="container">
+
+
+    <div class="content-wrapper">
+      <div class="header">
+        <img src="https://imgur.com/cJNlWGo.jpg" alt="탐방 이미지" />
+      </div>
+      <div class="header2">
+        <div class="title-block">
+          <h3>도서 미리보기</h3>
+          <!— 여기서 화살표 —>
+          <div></div>
+        </div>
+        
+        <div class="hero-block">
+          <p class="text-block">
+           탐방다방 <br>: 다방의 매혹과 디자인 <br> <br>
+          </p>
+          <div class="slider-container">
+            <div class="slider" id="slider">
+              <img src="https://imgur.com/Nwd9ewn.png" alt="Page 1" />
+              <img src="https://imgur.com/I6ZRStl.png" alt="Page 2" />
+              <img src="https://imgur.com/oxAzS4L.png" alt="Page 3" />
+              <img src="https://imgur.com/JW5mC40.png" alt="Page 4" />
+            </div>
+          </div>
+          <p class="text-block">
+           <br><br><br><br><br><br><br><br> 책의 일부에서 발췌 <br>자세한 내용이 궁금하다면 책을 구매해보세요
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!— d-flex : display-flex —>
+    <div class="d-flex">
+      <div class="menu-section w-40">
+        <div class="menu-row">
+          <h3>책 자세히 알아보기</h3>
+          <a href="https://jiyun7711.github.io/book1/" class="split-btn">
+            <span class="left">책 소개</span>
+            <span class="right">탐방다방에 대해</span>
+          </a>
+        </div>
+
+        <div class="menu-row">
+          <a href="https://harin224.github.io/-/" class="split-btn">
+            <span class="left">디자인</span>
+            <span class="right">다방과 디자인</span>
+          </a>
+        </div>
+        <div class="expain">
+          <p>
+            ‘탐방 다방’은 2018년부터2024년까지<br>
+            전국의 다방 100여 곳을 탐방하고 사진과 글로 <br>
+            기록한 책으로, 방문한 다방들의 대다수가 건물이 생길<br>
+            때부터 다방이었던 것으로 추정된다.</p>
+        </div>
+        <div class="purchase-section">
+          <h3>책 구매 바로가기</h3>
+  <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=8998143887&start=pnaver_02" class="purchase-btn">탐방다방 알라딘에서 구매하기</a>
+  <a href="https://product.kyobobook.co.kr/detail/S000214738731" class="purchase-btn">탐방다방 교보문고에서 구매하기</a>
+  <a href="https://www.yes24.com/Product/Goods/138316700" class="purchase-btn">탐방다방 예스 24에서 구매하기</a>
+  <a href="https://smartstore.naver.com/dmbooks/products/11183071468?NaPm=ct%3Dmbenz4bk%7Cci%3De2efda794a2534bb17cf6a4a91df2a58da2c4f10%7Ctr%3Dboksl1%7Csn%3D234751%7Chk%3D55e88c93bd98ccc4a4afeca34dbe36b712066c28&nl-au=809d841649dc4f8fb3f1f1c603690e87" class="purchase-btn">탐방다방 강산북스에서 구매하기</a>
+</div>
+      </div>
+
+      <!— aside도 마찬가지 —>
+      <div class="aside w-50">
+        <img src="https://imgur.com/PrneEKx.jpg" alt="지도와 커피">
+      </div>
+    </div>
+
+    <div class="footer">
+      <img src="https://imgur.com/G8eSF1Z.png" alt="간판" style="width: 100%;">
+      <img src="https://imgur.com/rvijoQy.png" alt="노선도" style="width: 100%;">
+      <div class="subway-line">
+        <a href="https://jiyun7711.github.io/book1/" class="label">서울</a>
+        <a href="https://jiyun7711.github.io/book1/" class="label">공주</a>
+        <a href="https://jiyun7711.github.io/book1/" class="label">부산</a>
+        <a href="https://lee555439.github.io/mememe/" class="label">제주</a>
+      </div>
+    </div>
+
+  
+  </div>
+
+  <p class="end"> 계원예술대학교 디지털프로그래밍 기말과제 3조 조윤정 이지윤 이민채 이하경 이하린 </p>
+
+  <script>
+    const slider = document.getElementById('slider');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      const slideWidth = slider.children[0].clientWidth;
+      slider.style.transform = `translateX(-${slideWidth * index}px)`;
+    }
+
+    function autoSlide() {
+      currentIndex = (currentIndex + 1) % slider.children.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(autoSlide, 3000);
+    window.addEventListener('resize', () => showSlide(currentIndex));
+  </script>
+</body>
+
+</html>
