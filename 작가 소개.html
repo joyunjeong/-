@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>작가 소개</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      min-width: 1280px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      font-family: 'Pretendard', sans-serif;
+      background: #fff;
+    }
+    #wrap {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    #header-box {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #efaf3f;
+      padding: 0 45px;
+      font-size: 14pt;
+      font-weight: bold;
+    }
+    a {
+      text-decoration: none;
+      color: #010101;
+    }
+    a:hover {
+      color: #993f30;
+    }
+    .font-lg { font-size: 27px; }
+    .font-md { font-size: 24px; }
+    .weight-extrabold { font-weight: 800; }
+    .weight-bold { font-weight: 700; }
+    .weight-medium { font-weight: 500; }
+    .semi-bold { font-weight: 600; }
+    .regular { font-weight: 400; }
+    .line-140 { line-height: 1.3; }
+    .p-x-29 { padding-left: 29px; padding-right: 0px; }
+    .box1, .box4 {
+      width: 338px;
+      background-color: #f2f2f2;
+    }
+    .box1 {
+      height: 363.1px;
+      background-color: #ccc;
+    }
+    .box3, .box5 {
+      width: 338px;
+      height: 65.5px;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box4 {
+      width: 338px;
+      height: 35.2px;
+      background-color: #fff;
+    }
+    .box6 {
+      width: 338px;
+      background-color: #fff;
+      padding: 57px 26px 0px 62px;
+      font-size: 23px;
+    }
+    .inner-box {
+      width: 270px;
+      padding: 21px 0px 15px 17px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 76px;
+      font-size: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #010101;
+      transition: background-color 0.2s;
+    }
+    .inner-box:hover {
+      color: #993f30;
+    }
+    .circle {
+      width: 16px;
+      height: 16px;
+      background-color: #010101;
+      border-radius: 50%;
+    }
+    .horizontal-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .horizontal-container.content {
+      flex: 1;
+      overflow-y: auto;
+      justify-content: flex-start;
+    }
+    .left-column {
+      display: flex;
+      flex-direction: column;
+    }
+    .box2 {
+      width: 100%;
+      max-width: 941px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 36px;
+      margin: 0 auto;
+      padding-top: 70px;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .text-wrap {
+      width: 320px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .box2-image {
+      flex-shrink: 0;
+      width: 441px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .box2-image img {
+      width: 441px; 
+      height: 335px;
+      display: block;
+      border-radius: 0;
+      object-fit: cover;
+      margin-bottom: 24px;
+    }
+    .author-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+    }
+    .author-role {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+    .author-name {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: -6px;
+      margin-bottom: 0;
+    }
+    .author-desc {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+    .box2-bottom {
+      width: 100%;
+      max-width: 941px;
+      height: auto;
+      display: block;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 48px auto 0 auto;
+    }
+    .long-line {
+      width: 100%;
+      max-width: 941px;
+      height: 2px;
+      background-color: #010101;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .box7 {
+      width: 100%;
+      max-width: 1280px;
+      height: 209px;
+      background-color: #efaf3f;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 30px;
+      font-size: 11px;
+      margin: 0 auto;
+    }
+    .box7-text {
+      color: #21594e;
+      text-align: center;
+      margin-left: 9px;
+      font-size: 11px;
+      line-height: 2.5;
+      margin-top: 15px;
+      margin-bottom: 70px;
+    }
+    p { margin: 0; }
+    @media (max-width: 1100px) {
+      html, body, #wrap, .horizontal-container, #header-box, .box2, .box7 {
+        width: 100% !important;
+        min-width: 1280px !important;
+        max-width: 1280px !important;
+      }
+    }
+    .mediuma {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="header-box">
+      <div class="header-left"> <a href="index.html">탐방다방</a>ㅣ<a href="책 소개.html">책 소개</a> ㅣ <a href="다방과 디자인.html">다방과 디자인</a>                         </a></div>
+        
+        <div class="header-right"> <a href="응접실다방.html">서울</a> ㅣ <a href="미도다실.html">공주</a> ㅣ <a href="백조다방.html">부산</a> ㅣ <a href="옥다방.html">제주</a></div>
+       </div>
+  <div id="wrap">
+    <div class="horizontal-container content">
+      <div class="left-column">
+        <div class="box1">
+          <img src="https://i.imgur.com/6pnMgR9.png" alt="box1" width="338" height="363">
+        </div>
+        <div class="box3">
+          <a href="책 소개.html" class="inner-box">
+            <div class="circle"></div>
+            <span class="font-lg weight-extrabold">책 소개</span>
+          </a>
+        </div>
+        <div class="box4"></div>
+        <div class="box5">
+          <a href="작가 소개.html" class="inner-box">
+            <div class="circle"></div>
+            <span class="font-lg weight-extrabold">작가 소개</span>
+          </a>
+        </div>
+        <div class="box6"> 
+          <p class="mediuma">
+            ‘탐방 다방’은<br>
+            2018년부터2024년까지<br>
+            전국의 다방 100여 곳을<br>
+            탐방하고 사진과 글로 기록한 책이다.<br><br>
+            방문한 다방들의<br>
+            건축물 사용 승인일은<br>
+            1960년대가 26퍼센트,<br>
+            70년대 31퍼센트,<br>
+            80년대 38퍼센트,<br>
+            90년대 이후가 5퍼센트로,<br>
+            대다수가 건물이 생길 <br>
+            때부터 다방이었던<br>
+            것으로 추정된다.<br><br>
+            다방 아카이빙 작업은<br>
+            한국 건축과 공간의<br>
+            지역성에 대한 관심에서<br> 
+            출발했다.<br>
+            1920년대에 시작된<br> 
+            다방의 역사는 이제<br> 
+            100년이 넘었다.<br>
+            기호 식품인 커피는 예나<br> 
+            지금이나 모던의 상징이며,<br> 
+            커피를 마시는 공간은<br>
+            시대의 유행과 디자인을<br> 
+            선도하는 문화적 중심지가<br> 
+            되어왔다.<br>
+            카페에 밀려났지만<br> 
+            다방은 여전히 전국<br> 
+            곳곳에서 운영되고 있다.<br>
+            다방을 한국의 문화를<br>
+            반영하고 축적한 중요한<br> 
+            공간으로 보고, 그 안에<br> 
+            스며든 디자인을 탐색하고자<br> 
+            했다.<br>
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="box2">
+          <div class="text-wrap">
+            <p class="font-lg weight-extrabold line-140 p-x-29">출판</p>
+            <p class="font-md semi-bold line-140 p-x-29" style="padding-top: 32px;">프로파간다</p>
+            <p class="font-md regular line-140 p-x-29" style="padding-bottom:24px;">
+              전북 군산시 구영4길 16-2<br>
+              T. 02-333-8458<br>
+              F. 02-333-8460<br>
+              www.graphicmag.co.kr<br>
+              ISBN 978-89-98143-88-6<br>
+            </p>
+          </div>
+          <div class="box2-image">
+            <img src="https://i.imgur.com/Dslc96r.png" alt="저자 사진">
+            <div class="author-block">
+              <div class="author-role">저자(글)</div>
+              <div class="author-name">홍윤주</div>
+              <div class="author-desc">
+                건축과 일상에 대한 관심을 바탕으로 '또-살아 움직이는-건축'을 주제로 생활건축연구소를 운영한다.
+                2011년에 시작한 생활 밀착형 건축 웹진 진짜공간 (<b><a href="https://jinzaspace.com" target="_blank" style="color:#222;text-decoration:underline;">jinzaspace.com</a></b>)
+                은 도시와 공간을 연구하는 방법을 실험하고 일상을 읽는 다양한 접근을 제안하는 프로젝트다.<br>
+                건축가 주도의 공간이 아니라 개인들이 주체적으로 지은 생활 건축에 주목하며,
+                전문가에게 실린 힘을 일상을 구성하는 사용자에게로 전환하는 활동을 하고 있다.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box2-bottom">
+          <div class="long-line"></div>
+          <div class="section-title">함께 해주신 분들</div>
+           <img src="https://i.imgur.com/L8qOsCd.png" alt="box1" width="800" height="804" style="padding-bottom:24px;">
+        </div>
+      </div>
+    </div>
+    <div class="horizontal-container">
+      <div class="box7">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <img src="https://i.imgur.com/Arw3hoj.png" alt="box1" width="50" height="50">
+          <p class="box7-text">
+            계원예술대학교<br>
+            디지털프로그래밍<br>
+            3조<br>
+            탐방다방
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
